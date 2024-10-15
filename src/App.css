@@ -1,38 +1,458 @@
-.App {
-  text-align: center;
+html {
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Roboto';
+  font-style: Roboto;
+  line-height: 1.6;
+  color: #fff;
+  background-color: #000;
+  overflow-x: hidden;
+  margin: 0;
+  cursor: url('https://ik.imagekit.io/ve7kfpijr/cursor.cur'), auto;
+  text-shadow: black 0px 5px 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+#background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bgContainer {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.navBar,
+.navBarSmall {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: transparent;
+  border-bottom: 1px solid grey;
+}
+
+@media screen and (max-width:760px) {
+  .navBar {
+      display: none;
   }
 }
 
-.App-header {
-  background-color: #282c34;
+@media screen and (min-width:761px) {
+  .navBarSmall {
+      display: none;
+  }
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+}
+
+.dropdownContent {
+  display: none;
+  z-index: 2;
+  position: absolute;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: black;
+  padding: 15px;
+  text-align: left;
+  width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6);
+  transform: translate(-80%, 20%);
+}
+
+.dropdownContent a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 5px;
+}
+
+.dropdownContent a:hover {
+  background-color: #ddd;
+  color: black;
+  transform: scale(1.05);
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
+.navEle {
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: .3s;
+  z-index: 1;
+  font-family: inherit;
+  color: white;
+  text-decoration: none;
+  text-shadow: black 0px 5px 20px;
+  font-weight: bold;
+}
+
+.navEle::before {
+  content: '';
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: white;
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+  color: black;
+}
+
+.navEle:hover {
+  color: black;
+  border-radius: 15px;
+}
+
+.navEle:hover::before {
+  width: 105%;
+}
+
+.homeCard {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  box-shadow: black 0px 5px 15px;
+}
+
+.mainHeading {
+  font-size: 80px;
+  margin-bottom: 20px;
+  line-height: 120%;
+  font-family: 'italic';
+  font-style: italic;
+  text-shadow: black 0px 5px 15px;
+}
+
+.roleText {
+  font-size: 40px;
+  font-weight: 600;
+  font-family: 'italic';
+  font-style: italic;
+  text-decoration: underline 1px;
+  text-shadow: black 0px 5px 15px;
+}
+
+@media screen and (max-width:760px) {
+  .mainHeading {
+      font-size: 60px;
+  }
+}
+
+.resume {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  border: 1px solid grey;
+  padding: 5px;
+  border-radius: 5px;
+  text-shadow: black 0px 5px 15px;
+}
+
+.educationCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  height: 100%;
+  box-shadow: black 0px 5px 15px;
+}
+
+.study {
+  display: flex;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  width: 80vw;
+  background-color: rgb(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width:760px) {
+  .study {
+      flex-direction: column;
+      line-height: 200%;
+  }
+}
+
+.study:hover {
+  transition: 0.5s;
+  transform: scale(1.05);
+  box-shadow: white 0px 5px 15px;
+}
+
+.studyName span {
+  font-size: 20px;
+  text-shadow: black 0px 5px 15px;
+}
+
+.projectContainer {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: black 0px 5px 15px;
+}
+
+.projectList {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.projectCard {
+  background-color: rgb(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  width: 25vw;
+  margin: 10px;
+}
+
+.projectCard:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+  box-shadow: white 0px 5px 15px;
+}
+
+.projectImg {
+  width: 25vw;
+  object-fit: cover;
+  box-shadow: black 0px 5px 15px;
+  height: 150px;
+}
+
+.projectLink {
+  text-decoration: none;
+  color: white;
+  border: 1px solid;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.projectLink:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+@media all and (max-width:650px) {
+  .projectCard {
+      width: 80vw;
+      margin-left: -30px;
+  }
+
+  .projectImg {
+      width: 80vw;
+  }
+}
+
+.skillsContainer {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  box-shadow: black 0px 5px 15px;
+}
+
+.skills {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: -35px;
+}
+
+.skillCard {
+  height: 120px;
+  width: 120px;
+  padding: 10px;
+  background-color: rgb(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 80%;
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 20px;
+}
+
+.skillCard:hover {
+  transition: 0.5s;
+  transform: scale(1.08);
+  box-shadow: white 0px 5px 15px;
+}
+
+.Heading {
+  font-family: 'italic';
+  font-style: italic;
+  text-decoration: underline 1px;
+  text-shadow: black 0px 5px 15px;
+}
+
+.certificates {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: black 0px 5px 15px;
+}
+
+.certificateCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  width: 80%;
+  border: 1px solid grey;
+}
+
+@media screen and (max-width:600px) {
+  .certificateCard {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}
+
+.certificateName {
+  font-size: 20px;
+}
+
+.certificateCard:hover {
+  transform: scale(1.05);
+  box-shadow: white 0 5px 15px;
+  transition: 0.4s;
+  margin-left: -10px;
+}
+
+.certificateSkills {
+  font-size: 18px;
+}
+
+.certificateLink {
+  text-decoration: none;
   color: white;
+  font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.certificateLinkBtn {
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.footer {
+  color: white;
+  box-shadow: black 0px 5px 15px;
+  padding: 20px;
+  text-align: center;
+}
+
+.contactsLogo {
+  margin-top: 5px;
+  margin-right: 10px;
+  opacity: 0.7;
+}
+
+.contactsLogo:hover {
+  transform: scale(1.5);
+  color: transparent;
+  border-radius: 30px;
+  transition: 0.6s;
+  opacity: 1;
+}
+
+.contactCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.greetings {
+  font-size: 25px;
+  font-family: 'sans serif';
+}
+
+.mailID {
+  font-family: 'Roboto';
+  font-size: bold;
+  position: absolute;
+  display: none;
+  transform: translate(10%, -50%);
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius: 5px;
+  text-shadow: black 0px 5px 15px;
+}
+
+.mailHover {
+  position: relative;
+}
+
+.mailHover:hover .mailID {
+  display: block;
+}
+
+.homeCard,
+.skillsContainer,
+.certificates,
+.footer {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
