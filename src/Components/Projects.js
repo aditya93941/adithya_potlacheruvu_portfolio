@@ -12,6 +12,16 @@ class Projects extends Component {
                         <a className="projectLink" href="https://game-frontend-gamma.vercel.app/" target='_blank'>Click Here</a>
                     </li>
                     <li className="projectCard">
+                        <img className="projectImg" src='https://res.cloudinary.com/dcbyjmsdq/image/upload/v1738756446/Screenshot_2025-02-05_172246_e4e21k.png' alt="User Management App"/>
+                        <h2>User Management App</h2>
+                        <a className="projectLink" href="https://user-management-app-navy.vercel.app/" target='_blank'>Click Here</a>
+                    </li>
+                    <li className="projectCard">
+                        <img className="projectImg" src='https://res.cloudinary.com/dcbyjmsdq/image/upload/v1738756622/Screenshot_2025-02-05_172643_iulgfw.png' alt="Contact Management System"/>
+                        <h2>Contact Management System</h2>
+                        <a className="projectLink" href="https://contact-management-system-nine.vercel.app/" target='_blank'>Click Here</a>
+                    </li>
+                    <li className="projectCard">
                         <img className="projectImg" src='https://ik.imagekit.io/ve7kfpijr/Screenshot%202024-10-15%20144558.png' alt="Social Media Tasks"/>
                         <h2>Social Media Tasks</h2>
                         <a className="projectLink" href="https://social-media-tasks.vercel.app/" target='_blank'>Click Here</a>
